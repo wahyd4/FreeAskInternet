@@ -1,6 +1,6 @@
 services:
   backend:
-    # image: docker.io/nashsu/free_ask_internet:latest
+    image: docker.io/nashsu/free_ask_internet:latest
     # For developing in local, please enable the following section and run docker-compose up --build
     # build:
     #   context: .
