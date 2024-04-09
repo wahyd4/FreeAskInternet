@@ -1,10 +1,19 @@
 services:
   backend:
-    image: docker.io/nashsu/free_ask_internet:latest
+    # image: docker.io/nashsu/free_ask_internet:latest
+    # For developing in local, please enable the following section and run docker-compose up --build
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     depends_on:
       - freegpt35
     restart: on-failure
- 
+    environment:
+      - SEARXNG_HOST=http://searxng:8080
+      - OPENAI_HOST=http://freegpt35:3040
+      - MODEL_NAME=gpt-3.5-turbo
+    ports:
+      - "8000:8000"
 
   chatgpt-next-web:
     image: yidadaa/chatgpt-next-web
